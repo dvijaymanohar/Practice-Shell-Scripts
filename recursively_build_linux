@@ -1,0 +1,13 @@
+#!/bin/bash
+
+for D in *; do
+     if [ -d "${D}" ]; then
+     if [ ${D} != "common" ]; then
+        echo "${D}"   # your processing here
+		cd ${D}/build/apps_proc0/
+		./build_linux -asic clean
+		./build_linux -asic -j20
+		cd ../../../
+    fi
+	fi
+done
